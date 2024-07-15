@@ -39,6 +39,8 @@ dependencies:
   firebase_auth:
   modal_progress_hud_nsn:
   cloud_firestore:
+  flutter_bloc:
+
 
 dev_dependencies:
   flutter_test:
