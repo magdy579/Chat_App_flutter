@@ -19,6 +19,7 @@ class ChatPage extends StatelessWidget {
   // List<Message>messageList = [];
   TextEditingController controller = TextEditingController();
 
+
   @override
   Widget build(BuildContext context) {
     var email = ModalRoute
@@ -80,7 +81,16 @@ class ChatPage extends StatelessWidget {
                 hintText: 'Send message',
                 suffixIcon: IconButton(
                   onPressed: () {
-
+                    BlocProvider.of<ChatCubit>(context).sendMessage(
+                      message: controller.text,
+                      email: email,
+                    );
+                    controller.clear();
+                    _controller.animateTo(
+                      0,
+                      duration: const Duration(milliseconds: 500),
+                      curve: Curves.fastOutSlowIn,
+                    );
                   },
                   icon: const Icon(Icons.send,
                     color: kprimaryColor,
